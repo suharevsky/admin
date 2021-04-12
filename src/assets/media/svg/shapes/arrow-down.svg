@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="10px" viewBox="0 0 20 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/ArrowDown</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Gentley_Landingpage" transform="translate(-710.000000, -687.000000)">
+            <g id="Icons/ArrowDown" transform="translate(708.000000, 680.000000)">
+                <rect id="Rectangle-6" x="0" y="0" width="24" height="24"></rect>
+                <path d="M21.7291991,7.26838252 C21.3668116,6.91070446 20.7786747,6.91070446 20.4162873,7.26739173 L12.6566419,14.9034715 C12.4754482,15.0818152 12.2378171,15.170987 12.000186,15.170987 C11.7625549,15.170987 11.5239336,15.0818152 11.3427399,14.9034715 L3.58408468,7.26739173 C3.22070713,6.91070446 2.63356029,6.91070446 2.27117287,7.26838252 C1.90878545,7.62606058 1.90977558,8.20468659 2.27315313,8.56236465 L10.0308183,16.1974537 C10.5734093,16.7324846 11.2872927,17 12.000186,17 C12.7130793,17 13.4259725,16.7324846 13.9695537,16.1974537 L21.7272188,8.56236465 C22.0905963,8.20468659 22.0905963,7.62606058 21.7291991,7.26838252" id="Fill-1" fill="#FFFFFF" fill-rule="evenodd"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,46 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">Users pictures list</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- begin:Table -->
+        <div class="table-responsive angular-bootstrap-table">
+            <table class="table table-head-custom table-vertical-center overflow-hidden">
+                <thead>
+                <th>PICTURE</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let userPic of userService.items$ | async">
+                    <td><img src="{{ fileUploadService.getBaseUrl(userPic.id) }}" alt="user picture"></td>
+                    <td><span class="label label-lg label-inline" [class.label-light-danger]="!userPic?.approved"
+                              [class.label-light-success]="userPic?.approved">
+                <ng-container *ngIf="!userPic?.approved">Not Approved</ng-container>
+                <ng-container *ngIf="userPic?.approved">Approved</ng-container>
+
+              </span></td>
+                    <td>{{ userPic.main }}</td>
+                    <td>
+
+                        <a title="Edit customer" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                      class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+                        </a>
+                        <a title="Delete customer" class="btn btn-icon btn-light btn-hover-danger btn-sm">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                      class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end: Table -->
+    </div>
+</div>

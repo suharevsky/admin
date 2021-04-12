@@ -1,0 +1,298 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <div class="modal-title h4" id="example-modal-sizes-title-lg">
+            <ng-container *ngIf="user">
+                <ng-container *ngIf="user.id">Edit</ng-container>
+                <ng-container *ngIf="!user.id">Create</ng-container>
+                user
+                <ng-container *ngIf="user.id">'{{user.username}}'</ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+        <ng-container *ngIf="isLoading$ | async">
+            <div class="overlay-layer bg-transparent">
+                <div class="spinner spinner-lg spinner-success"></div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="user">
+            <form action="#" class="form form-label-right" [formGroup]="formGroup">
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control form-control-lg form-control-solid" name="username"
+                               placeholder="Username" autocomplete="off"
+                               [class.is-invalid]="isControlInvalid('username')"
+                               [class.is-valid]="isControlValid('username')" formControlName="username"/>
+                        <div class="valid-feedback" *ngIf="isControlValid('username')">Username was entered correct
+                        </div>
+                        <div class="invalid-feedback" *ngIf="controlHasError('required', 'username')">Username is
+                            required
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-label">Enter Email</label>
+                        <input type="email" class="form-control form-control-lg form-control-solid" name="email"
+                               placeholder="Email"
+                               autocomplete="off" [class.is-invalid]="isControlInvalid('email')"
+                               [class.is-valid]="isControlValid('email')" formControlName="email"/>
+                        <div class="valid-feedback" *ngIf="isControlValid('email')">Email was entered correct</div>
+                        <div class="invalid-feedback" *ngIf="controlHasError('required', 'email')">Email is required
+                        </div>
+                        <div class="invalid-feedback" *ngIf="controlHasError('uniqueEmailValidator', 'email')">Uniq
+                        </div>
+                        <div class="invalid-feedback" *ngIf="controlHasError('uniqueEmail', 'email')">Uniqe
+                        </div>
+                        <div class="invalid-feedback" *ngIf="controlHasError('email', 'email')">Email format is
+                            incorrect
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Date of Birth</label>
+                        <div class="input-group input-group-solid">
+                            <input type="text" name="dateOfBirth"
+                                   class="form-control form-control-lg form-control-solid"
+                                   autocomplete="off"
+                                   placeholder="dd/mm/yyyy" ngbDatepicker #d="ngbDatepicker"
+                                   [class.is-invalid]="isControlInvalid('dateOfBirth')"
+                                   [class.is-valid]="isControlValid('dateOfBirth')" formControlName="dateOfBirth"
+                                   readonly="true"/>
+                            <div class="input-group-append" (click)="d.toggle()">
+                <span class="input-group-text">
+                  <i class="text-dark-50 flaticon-calendar"></i>
+                </span>
+                            </div>
+                        </div>
+                        <div class="valid-feedback" *ngIf="isControlValid('dateOfBirth')">Date of Birth was entered
+                            correct
+                        </div>
+                        <div class="invalid-feedback" *ngIf="controlHasError('required', 'dateOfBirth')">Please enter
+                            <b>Date of
+                                Birth</b>
+                            in 'mm/dd/yyyy' format
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label>Select Gender</label>
+                        <select class="form-control form-control-lg form-control-solid" name="gender"
+                                [class.is-invalid]="isControlInvalid('gender')" formControlName="gender">
+                            <option value="גבר">גבר</option>
+                            <option value="אישה">אישה</option>
+                            <option value="זוג">זוג</option>
+                        </select>
+                        <div class="feedback">Please select <b>Gender</b></div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label>About Me</label>
+                        <textarea class="form-control form-control-lg form-control-solid" name="about"
+                                  formControlName="about">
+
+                    </textarea>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-label">Enter IP Address</label>
+                        <input type="text" class="form-control form-control-lg form-control-solid" name="ipAddress"
+                               placeholder="255.255.255.0" autocomplete="off"
+                               [class.is-invalid]="isControlInvalid('ipAddress')"
+                               [class.is-valid]="isControlValid('ipAddress')" formControlName="ipAddress"/>
+                        <div class="valid-feedback" *ngIf="isControlValid('ipAddress')">IP was entered correct</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label>Height</label>
+                        <select class="form-control form-control-lg form-control-solid" name="height"
+                                formControlName="height">
+                            <option *ngFor="let height of userFieldService.getHeight().options"
+                                    value="{{height}}">{{height}} {{userFieldService.getHeight().measure}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Body Type</label>
+                        <select class="form-control form-control-lg form-control-solid" name="bodyType"
+                                formControlName="bodyType">
+                            <option *ngFor="let bodyType of userFieldService.getBodyType().options"
+                                    value="{{bodyType}}">{{bodyType}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Marital status</label>
+                        <select class="form-control form-control-lg form-control-solid" name="maritalStatus"
+                                formControlName="maritalStatus">
+                            <option *ngFor="let maritalStatus of userFieldService.getMaritalStatus().options"
+                                    value="{{maritalStatus}}">{{maritalStatus}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label>Subscription</label>
+                        <select class="form-control form-control-lg form-control-solid" name="subscription"
+                                formControlName="subscription">
+                            <option value="true">Active</option>
+                            <option value="false">Not Active</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Subscription ( starting date )</label>
+                        <div class="input-group input-group-solid">
+                            <input type="text" name="subscriptionStart"
+                                   class="form-control form-control-lg form-control-solid"
+                                   autocomplete="off"
+                                   placeholder="dd/mm/yyyy" ngbDatepicker #sd="ngbDatepicker"
+                                   [class.is-invalid]="isControlInvalid('subscriptionStart')"
+                                   [class.is-valid]="isControlValid('subscriptionStart')"
+                                   formControlName="subscriptionStart"
+                                   readonly="true"/>
+                            <div class="input-group-append" (click)="sd.toggle()">
+                <span class="input-group-text">
+                  <i class="text-dark-50 flaticon-calendar"></i>
+                </span>
+                            </div>
+                        </div>
+                        <div class="valid-feedback" *ngIf="isControlValid('subscriptionStart')">Date was entered correct
+                        </div>
+                        <!--<div class="invalid-feedback" *ngIf="controlHasError('required', 'subscriptionStart')">Please
+                            enter <b>Date</b>
+                            in 'mm/dd/yyyy' format
+                        </div>-->
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Subscription ( finishing date )</label>
+                        <div class="input-group input-group-solid">
+                            <input type="text" name="subscriptionEnd"
+                                   class="form-control form-control-lg form-control-solid"
+                                   autocomplete="off"
+                                   placeholder="dd/mm/yyyy" ngbDatepicker #ed="ngbDatepicker"
+                                   [class.is-invalid]="isControlInvalid('subscriptionEnd')"
+                                   [class.is-valid]="isControlValid('subscriptionEnd')"
+                                   formControlName="subscriptionEnd" readonly="true"/>
+                            <div class="input-group-append" (click)="ed.toggle()">
+                <span class="input-group-text">
+                  <i class="text-dark-50 flaticon-calendar"></i>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label>Area</label>
+                        <select class="form-control form-control-lg form-control-solid" name="area"
+                                formControlName="area">
+                            <option *ngFor="let area of userFieldService.getArea().options"
+                                    value="{{area}}">{{area}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Status</label>
+                        <select class="form-control form-control-lg form-control-solid" name="status"
+                                formControlName="status">
+                            <option *ngFor="let status of userFieldService.getStatus().options; let i = index"
+                                    value="{{i}}">{{status}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label class="form-label">Preference</label>
+                        <div *ngFor="let preference of userFieldService.getPreference().options; let i=index">
+                            <label>
+                                <input type="checkbox" [checked]="user.preference.includes(preference)"
+                                       [value]="preference" (change)="onCheckboxChange($event, 'preference')"/>
+                                {{preference}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-label">Looking For</label>
+                        <div *ngFor="let lookingFor of userFieldService.getLookingFor().options; let i=index">
+                            <label>
+                                <input type="checkbox" [checked]="user.lookingFor.includes(lookingFor)"
+                                       [value]="lookingFor" (change)="onCheckboxChange($event,'lookingFor')"/>
+                                {{lookingFor}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+    </div>
+    <div class="table-responsive angular-bootstrap-table">
+        <table class="table table-head-custom table-vertical-center overflow-hidden">
+            <thead>
+            <th class="selection-cell-header" data-row-selection="true">
+                PICTURE
+            </th>
+            <th class="selection-cell-header" data-row-selection="true">
+                STATUS
+            </th>
+            <th class="selection-cell-header" data-row-selection="true">
+                MAIN
+            </th>
+            <th class="selection-cell-header" data-row-selection="true">
+                ACTIONS
+            </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let photo of user?.photos; let index = i">
+                <td><img src="{{ fileUploadService.getBaseUrl(photo.url) }}" alt="user picture"></td>
+                <td><span class="label label-lg label-inline" [class.label-light-danger]="!photo?.approved"
+                          [class.label-light-success]="photo?.approved">
+                <ng-container *ngIf="!photo?.approved">Not Approved</ng-container>
+                <ng-container *ngIf="photo?.approved">Approved</ng-container>
+
+              </span>
+                    <mat-checkbox [checked]="photo.approved" (change)="setPhotoApproval(photo)"></mat-checkbox>
+                </td>
+                <td><span *ngIf="photo?.main" class="label label-lg label-inline"
+                          [class.label-light-success]="photo?.main">
+                <ng-container *ngIf="photo?.main">Main Picture</ng-container>
+              </span>
+                    <mat-radio-button checked="{{photo.main}}" (change)="setMainPhoto(photo)"></mat-radio-button>
+                </td>
+                <td>
+
+                    <a title="Edit userService" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                      class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+                    </a>
+
+                    <a title="Delete photo" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                       (click)="deleteFile(user,photo)">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                      class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+                    </a>
+                </td>
+            </tr>
+            <input type="file" accept=".png,.jpg" (change)="uploadFile($event)">
+            <!-- <p *ngIf="uploadProgress">
+                 <ngb-progressbar [showValue]="true" type="info" [value]="(uploadProgress | async)"></ngb-progressbar>
+             </p>-->
+
+
+            <!-- <div class="container" *ngIf="downloadURL | async; let url">
+                 <img class="photo-upload" data-id="{{url}}" [src]="url" alt="Image from AngularFireStorage">
+             </div>-->
+            </tbody>
+
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+        <ng-container *ngIf="user">
+<!--
+            [disabled]="formGroup.invalid"
+-->
+            <button type="submit"  class="btn btn-primary btn-elevate" (click)="save()">Save</button>
+        </ng-container>
+    </div>
+</div>
