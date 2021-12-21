@@ -16,7 +16,6 @@ export class UserService extends TableService<User> implements OnDestroy {
     constructor(@Inject(HttpClient) http) {
         super(http);
     }
-
     // READ
     find(tableState: ITableState): Observable<TableResponseModel<User>> {
         return this.http.get<User[]>(this.API_URL).pipe(
@@ -36,17 +35,56 @@ export class UserService extends TableService<User> implements OnDestroy {
         );
     }
 
+    allPhotosApproved(user) {
+        const photos = user.photos.filter(photo => {
+            return photo.status === 0;
+        });
+        return user.allPhotosApproved = photos.length === 0 ? 1 : 0;
+    }
+
+    mainPhotoApproved(user) {
+        const photos = user.photos.filter(photo => {
+            return photo.status === 1 && photo.main;
+        });
+        return user.mainPhotoApproved = photos.length === 1 ? 1 : 0;
+    }
+
     // READ
     getUnapprovedPhotos(): any {
         this._isLoading$.next(true);
         this._errorMessage.next('');
         // console.log(this._tableState$.value);
-        const request = this.find(this._tableState$.value)
-            .pipe(
+        const request = this.http.get<User[]>(this.API_URL + '/photos/unapproved').pipe(
+            map((response: User[]) => {
+                console.log('User Data',response);
+
+                response.forEach(el => {
+                    el.photo = this.getMainPhoto(el.photos);
+                    return el;
+                });
+
+                console.log('User Data',response);
+
+                const filteredResult = baseFilter(response, this._tableState$.value);
+                const result: TableResponseModel<User> = {
+                    items: filteredResult.items,
+                    total: filteredResult.total
+                };
+                return result;
+            })
+
+        ).pipe(
                 tap((res) => {
                     const result: any = res.items.map((user: any) => {
                         // console.log(user);
-                        return user.photos.filter(p => p.approved === false);
+                        user.photos.map(photo => {
+                            photo.userId = user.id;
+                            return photo;
+                        });
+
+                        console.log(user.photos);
+
+                        return user.photos.filter(p => p.status === 0);
                     });
 
                     this._items$.next(result.flat());
@@ -73,19 +111,18 @@ export class UserService extends TableService<User> implements OnDestroy {
                         grouping: this._tableState$.value.grouping.clearRows(itemIds),
                     });
                 })
-            ).subscribe(res => console.log(res));
+            ).subscribe();
         this._subscriptions.push(request);
-
     }
 
     getMainPhoto(photos) {
-        let photo = photos.filter(el => el.main === true);
+        let photo:any = [];
 
+        if(photos?.length > 0) {
+            photo = photos.filter(el => el.main === true);
+        }
         photo = (photo.length > 0) ? photo[0] : {url: './assets/media/users/default.jpg'};
-        photo.url = (photo.approved) ? photo.url : './assets/media/users/default.jpg';
-
-        console.log(photos);
-
+        photo.url = (photo.status === 1) ? photo.url : './assets/media/users/default.jpg';
         return photo;
     }
 
@@ -96,16 +133,6 @@ export class UserService extends TableService<User> implements OnDestroy {
             catchError(err => {
                 console.error('UPDATE ITEM', item, err);
                 return of(item);
-            })
-        );
-    }
-
-    getByEmail(email: string) {
-        const url = `${this.API_URL}/${email}`;
-        return this.http.get(url).pipe(
-            catchError(err => {
-                console.error('UPDATE EMAIL', email, err);
-                return of(email);
             })
         );
     }

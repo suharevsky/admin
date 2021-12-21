@@ -18,6 +18,7 @@ export class UserModel extends AuthModel {
     bodyType: string;
     ipAddress: string;
     area: string;
+    city: string;
     socialNetworks?: SocialNetworksModel;
     registrationDate: string;
     // personal information

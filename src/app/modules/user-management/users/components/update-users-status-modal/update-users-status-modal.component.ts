@@ -27,7 +27,7 @@ export class UpdateUsersStatusModalComponent implements OnInit, OnDestroy {
     const sb = this.userService.items$.pipe(
       first()
     ).subscribe((res: User[]) => {
-      this.users = res.filter(c => this.ids.indexOf(c.id) > -1);
+      this.users = res.filter((c: any) => this.ids.indexOf(c.id) > -1);
     });
     this.subscriptions.push(sb);
   }

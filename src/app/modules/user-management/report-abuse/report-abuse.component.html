@@ -1,0 +1,85 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">Reports list</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- begin: Filtration form -->
+        <div class="form form-label-right">
+            <div class="form-group row">
+                <div class="col-lg-2" [formGroup]="searchGroup">
+                    <input type="text" class="form-control" name="searchText" placeholder="Search" value=""
+                           formControlName="searchTerm"/><small class="form-text text-muted"><b>Search</b> in all fields</small>
+                </div>
+            </div>
+        </div>
+        <!-- end: Filtration form -->
+
+        <!-- begin: Grouping -->
+        <ng-container *ngIf="grouping.getSelectedRowsCount()">
+            <div class="form">
+                <div class="row align-items-center form-group-actions margin-top-20 margin-bottom-20">
+                    <div class="col-xl-12">
+                        <div class="form-group form-group-inline">
+                            <div class="form-label form-label-no-wrap">
+                                <label class="font-bold font-danger"><span>Selected records count:
+                    <b>{{ grouping.getSelectedRowsCount() }}</b></span></label>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-danger font-weight-bolder font-size-sm mr-1"
+                                        (click)="deleteSelected()">
+                                    <i class="fa fa-trash"></i> Delete All
+                                </button>&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <!-- end: Grouping -->
+
+        <!-- begin:Table -->
+        <div class="table-responsive angular-bootstrap-table">
+            <table class="table table-head-custom table-vertical-center overflow-hidden">
+                <thead>
+                <th class="selection-cell-header" data-row-selection="true">
+                    <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectAllRows()"
+                                                                   [checked]="grouping.checkAreAllRowsSelected()"/><span></span></label>
+                </th>
+                <th>SUBJECT</th>
+                <th>MESSAGE</th>
+                <th>REPORT FROM ID <app-sort-icon column="fromId" [activeColumn]="sorting.column"
+                                                  [activeDirection]="sorting.direction"
+                                                  (sort)="sort($event)"></app-sort-icon></th>
+                <th>REPORT ON ID <app-sort-icon column="onId" [activeColumn]="sorting.column"
+                                                [activeDirection]="sorting.direction"
+                                                (sort)="sort($event)"></app-sort-icon></th>
+                <th>COMPLAINS COUNTER<app-sort-icon column="counter" [activeColumn]="sorting.column"
+                                                [activeDirection]="sorting.direction"
+                                                (sort)="sort($event)"></app-sort-icon></th>
+                <th>DATE <app-sort-icon column="date" [activeColumn]="sorting.column"
+                                        [activeDirection]="sorting.direction"
+                                        (sort)="sort($event)"></app-sort-icon></th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let report of reportAbuseService.items$ | async">
+                    <th class="selection-cell-header" data-row-selection="true">
+                        <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectAllRows()"
+                                                                       [checked]="grouping.checkAreAllRowsSelected()"/><span></span></label>
+                    </th>
+                    <td>{{ report.subject }}</td>
+                    <td>{{ report.message }}</td>
+                    <td>{{ report.fromId }}</td>
+                    <td>{{ report.onId }}</td>
+                    <td>{{ report.counter }}</td>
+                    <td>{{ report.date }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end: Table -->
+        <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+                       [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+    </div>
+</div>

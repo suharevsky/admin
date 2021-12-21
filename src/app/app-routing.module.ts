@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from './modules/auth/_services/auth.guard';
 
 export const routes: Routes = [
@@ -13,20 +13,25 @@ export const routes: Routes = [
         loadChildren: () =>
             import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
     },
-    /*{
+/*    {
+        path: 'dashboard',
+        loadChildren: () =>
+            import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
+    },*/
+    {
         path: '',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         loadChildren: () =>
             import('./pages/layout.module').then((m) => m.LayoutModule),
         // import('./pages/home/home.module').then((m) => m.HomeModule),
 
+    },
+    /*{
+        path: '',
+        // canActivate: [AuthGuard],
+        loadChildren: () =>
+            import('./pages/home/home.module').then((m) => m.HomeModule),
     },*/
-      {
-          path: '',
-          // canActivate: [AuthGuard],
-          loadChildren: () =>
-              import('./pages/home/home.module').then((m) => m.HomeModule),
-      },
 
     {path: '**', redirectTo: 'error/404'},
 ];

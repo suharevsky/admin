@@ -1,0 +1,23 @@
+<router-outlet></router-outlet>
+<div class="card card-custom gutter-b">
+    <div class="card-body">
+        <form class="example-container" [formGroup]="settingsGroup">
+            <div class="row">
+                <div class="col-xl-6">
+                    <mat-form-field [color]="settingsGroup?.value?.onlineDuration">
+                        <input matInput type="number" class="form-control" placeholder="User online in minutes"
+                               formControlName="onlineDuration" min="10">
+                        <mat-error *ngIf="settingsGroup.get('onlineDuration')?.invalid">Field required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <ng-container>
+                    <button type="submit" *ngIf="!settingsGroup?.invalid" class="btn btn-primary btn-elevate" (click)="edit()">Save
+                    </button>
+                </ng-container>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -10,20 +10,18 @@
             <table class="table table-head-custom table-vertical-center overflow-hidden">
                 <thead>
                 <th>PICTURE</th>
-                <th>STATUS</th>
+                <th>USER ID</th>
                 <th>ACTIONS</th>
                 </thead>
                 <tbody>
 
                 <tr *ngFor="let userPic of userService.items$ | async">
                     <td><img src="{{ fileUploadService.getBaseUrl(userPic.id) }}" alt="user picture"></td>
-                    <td><span class="label label-lg label-inline" [class.label-light-danger]="!userPic?.approved"
-                              [class.label-light-success]="userPic?.approved">
-                <ng-container *ngIf="!userPic?.approved">Not Approved</ng-container>
-                <ng-container *ngIf="userPic?.approved">Approved</ng-container>
+                    <td><span class="label label-lg label-inline" [class.label-light-danger]="userPic?.status === 0">
+                <ng-container *ngIf="userPic?.status === 0">Not Approved</ng-container>
 
               </span></td>
-                    <td>{{ userPic.main }}</td>
+                    <td>{{ userPic.userId }}</td>
                     <td>
 
                         <a title="Edit customer" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">

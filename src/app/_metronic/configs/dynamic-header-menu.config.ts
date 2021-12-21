@@ -305,7 +305,7 @@ export const DynamicHeaderMenuConfig = {
           submenu: [
             {
               title: 'Customers',
-              page: '/ecommerce/customers'
+              page: '/ecommerce/list'
             },
             {
               title: 'Products',

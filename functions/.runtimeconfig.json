@@ -1,0 +1,11 @@
+{
+  "project": {
+    "id": "joyme-19532"
+  },
+  "private": {
+    "key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCldTtSm23pfRWu\\new2OxASTSx2VUO8SZeiTNEst/N+JKNrje/xuKv/npIMc5yOfwcxxTCYIsxRWYVv7\\nOK+RywXeTzfTIX5+pooPP9c4mLCKsnqt2N8Ygp+nHDqmrCNNlMHzP1S965rWV72i\\n+4wCzjq/tye3TZAWknoPYYSQH6qHAWnN4HhlOR80aMjXI4BcBK2NUm/x/G2C5V88\\nusfn6ICkuMxbZLeXbXf1LcaXCpxZblaq+QRAcFbfOksWqJg5HjKqZlcnHAHheLHs\\nnUwGuK6xHvxN+2Hr2c2aVtDtFlANpNJUXkTkizLDbNHNJ++ZaVh0vrs2uYgJhbvJ\\nBl3JevAJAgMBAAECggEAE2x35H6X6H5NVGyAdtM65MY/kLL9v+OMCjTsQvexz8am\\nrKg2ZgIBBQL2e+cEEvoDq8TIXcLVJz9adpts3AERHSwgVfYzhP98y2W/mLavGfcy\\nKPTB2v0hrDLnjT+9zLqjCrDzfDC7noBSJD8izIUEl1NTc6TEvqufLe1RLEC1ao/+\\n9snyekmfj07qq5Fk8tzGNEVHEbcDSAGYNgG2t/gxmNekcZouIfeDg1lY6JZbiHA8\\nMcACq9D0nlNYv80Y7WlDxMp88VmRabLYkNPTtRIUAtCy2Tokp9eOB5e6iYjzve7d\\n0mOImH1UM1Cps2ChGkgouerHoiuUVoCGf0oDcqE9sQKBgQDO4TSv9ivybsmxrV0l\\ni/RMmGlaOfxwPIhcQ8LPLmPRgpwfqkGNJJMIbyAu5posH3T9MEuNWP5i0CaWODCN\\ncPrvbkiSAWQGsEoBnw++B2CewSnCYl3TS4vbWdxpGMys57Wn9t1iUw189QSwRdPH\\nCy2LEjfZKIr8hCd9E1a+QK/LkQKBgQDMvkgCaA1b23zTtVd79ThErApV2d7XB5IO\\nXIgyGaE/dZbaOl5y2lCY9omQYz8XvpE+B0V2z13w57XiCtMSsDUGbrjctxCLZOHM\\ns3FDFXDse6Lu9tM0D/Y9UFQzze6/ZdE6Dcy3uhWEknjIw5Cm2eYjJ7kBQpG8RO7P\\nMWIFBkbw+QKBgQC7yPBqSKnbhXTPMu46Bq/aVv5KSBg8SLX+CgPqy9EPe977Xy/h\\nTjGoljZAXFHVezhWGmB6DS3bw9VCxf5MZSFh9FkrLtf8ukhy8E75zviFIhElwOQp\\nx4lLsmW/gCNJT4o0zIBnn7u+kSmQV9HD+wF8Gy1WkNaYH904SzWRvGXWAQKBgCa0\\nTd6Olv/nZRiMbmZTe/iXYTjLf/G8T6MBYQm/iJj7fLHyWMpzdMsFyAmQiWvOrZxB\\nOaN1HfgdhWeezjn5L3zwz2eB/9GqF3lf7qhU1E0QLkPoSxLLdawvlEtawahS8hN8\\nalfNCKZQHh8twRmZlYTNzI5tbClgCpkGZ9Y1UpHZAoGAV1ktzvRG+Ei87oBO46kP\\ndS5P1GHf1hH4A8j0pRqeh4EB+B8X4opRuLWEFhpe/1UY2YP8+20RitmrXnBNN9ix\\nfcLtk/4SMoc7fUwmQHtb4wQo/1cN2GAONWVss6rK86Rl7gIxKBr9R0h0lU2yf1Q+\\n2ZgtWg3i9D2ivuIXFL7/JM8=\\n-----END PRIVATE KEY-----\\n"
+  },
+  "client": {
+    "email": "firebase-adminsdk-e9in6@joyme-19532.iam.gserviceaccount.com"
+  }
+}

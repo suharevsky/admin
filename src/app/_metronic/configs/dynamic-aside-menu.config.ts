@@ -292,7 +292,7 @@ export const DynamicAsideMenuConfig = {
       submenu: [
         {
           title: 'Customers',
-          page: '/ecommerce/customers'
+          page: '/ecommerce/list'
         },
         {
           title: 'Products',

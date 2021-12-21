@@ -1,7 +1,7 @@
 // tslint:disable:variable-name
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
-import { catchError, finalize, tap } from 'rxjs/operators';
+import {catchError, finalize, map, tap} from 'rxjs/operators';
 import { PaginatorState } from '../models/paginator.model';
 import { ITableState, TableResponseModel } from '../models/table.model';
 import { BaseModel } from '../models/base.model';
@@ -96,7 +96,7 @@ export abstract class TableService<T> {
     );
   }
 
-  getItemById(id: number): Observable<BaseModel> {
+  getItemById(id: number | string): Observable<BaseModel> {
     this._isLoading$.next(true);
     this._errorMessage.next('');
     const url = `${this.API_URL}/${id}`;
@@ -113,13 +113,12 @@ export abstract class TableService<T> {
   // UPDATE
   update(item: BaseModel): Observable<any> {
     const url = `${this.API_URL}/${item.id}`;
-    console.log(url);
     this._isLoading$.next(true);
     this._errorMessage.next('');
     return this.http.put(url, item).pipe(
+        map(res => console.log(res)),
       catchError(err => {
         this._errorMessage.next(err);
-        console.error('UPDATE ITEM', item, err);
         return of(item);
       }),
       finalize(() => this._isLoading$.next(false))
@@ -181,7 +180,8 @@ export abstract class TableService<T> {
     const request = this.find(this._tableState$.value)
       .pipe(
         tap((res: TableResponseModel<T>) => {
-          // console.log(this._tableState$.value);
+          console.log(this._tableState$.value);
+          console.log(res);
           this._items$.next(res.items);
           this.patchStateWithoutFetch({
             paginator: this._tableState$.value.paginator.recalculatePaginator(
@@ -190,6 +190,7 @@ export abstract class TableService<T> {
           });
         }),
         catchError((err) => {
+          console.error(err);
           this._errorMessage.next(err);
           return of({
             items: [],

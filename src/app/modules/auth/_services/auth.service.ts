@@ -21,7 +21,6 @@ export class AuthService implements OnDestroy {
     currentUserSubject: BehaviorSubject<UserModel>;
     isLoadingSubject: BehaviorSubject<boolean>;
 
-
     get currentUserValue(): UserModel {
         return this.currentUserSubject.value;
     }
@@ -61,7 +60,7 @@ export class AuthService implements OnDestroy {
     logout() {
         localStorage.removeItem(this.authLocalStorageToken);
         // this.router.navigate(['/auth/login'], {
-        this.router.navigate(['/auth/login'], {
+        this.router.navigate(['/'], {
             queryParams: {},
         });
     }
@@ -95,7 +94,6 @@ export class AuthService implements OnDestroy {
             }),
             switchMap(() => this.login(user.email, user.password)),
             catchError((err) => {
-                console.error('err', err);
                 return of(undefined);
             }),
             finalize(() => this.isLoadingSubject.next(false))
@@ -111,8 +109,9 @@ export class AuthService implements OnDestroy {
 
     // private methods
     private setAuthFromLocalStorage(auth: AuthModel): boolean {
-        // store auth accessToken/refreshToken/epiresIn in local storage to keep user logged in between page refreshes
+        // store auth accessToken/refreshToken/expiresIn in local storage to keep user logged in between page refreshes
         if (auth && auth.accessToken) {
+            console.log(auth);
             localStorage.setItem(this.authLocalStorageToken, JSON.stringify(auth));
             return true;
         }

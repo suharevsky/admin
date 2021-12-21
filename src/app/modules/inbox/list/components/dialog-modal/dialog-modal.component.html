@@ -1,0 +1,42 @@
+<div class="modal-content">
+    <!--<div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        <ng-container *ngIf="customer">
+          <ng-container *ngIf="customer.id">Edit</ng-container>
+          <ng-container *ngIf="!customer.id">Create</ng-container>
+          customer
+          <ng-container *ngIf="customer.id">'{{customer.firstName}} {{ customer.lastName }}'</ng-container>
+        </ng-container>
+      </div>
+    </div>-->
+    <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+        <div class="chat-list">
+            <div class="chat-item" *ngFor="let item of chat?.messages; index as i"
+                 [ngClass]="{'chat-item-outgoing': chat.uid1 !== item.uid}">
+                <div class="chat-timestamp center">
+                    <strong>{{item?.date}}</strong>
+                </div>
+                <div class="chat-item-inner">
+                    <div class="chat-avatar" *ngIf="chat.uid1 !== item.uid">
+                        <img [src]="item.avatar">
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-item-bubble" [ngClass]="{'bubble-image': item.type === 'image'}">
+                            <div class="chat-text" *ngIf="item.type !== 'image'"
+                                 [innerHtml]="nl2br(item.content)"></div>
+                            <img [src]="item.body" *ngIf="item.type === 'image'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+        <ng-container *ngIf="chat">
+            <button type="submit" class="btn btn-primary btn-elevate" (click)="save()"
+                    [disabled]="formGroup?.invalid">Save
+            </button>
+        </ng-container>
+    </div>
+</div>

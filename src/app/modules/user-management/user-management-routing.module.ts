@@ -4,6 +4,7 @@ import { UserManagementComponent } from './user-management.component';
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import {UserPicturesComponent} from './user-pictures/user-pictures.component';
+import {ReportAbuseComponent} from './report-abuse/report-abuse.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
+      },
+      {
+        path: 'report-abuse',
+        component: ReportAbuseComponent,
       },
       {
         path: 'roles',

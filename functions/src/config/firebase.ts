@@ -1,6 +1,7 @@
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
 
+
 admin.initializeApp({
     credential: admin.credential.cert({
         privateKey: functions.config().private.key.replace(/\\n/g, '\n'),
@@ -11,6 +12,7 @@ admin.initializeApp({
 });
 
 const db = admin.firestore();
+
 db.settings({ ignoreUndefinedProperties: true });
 
 export { admin, db }

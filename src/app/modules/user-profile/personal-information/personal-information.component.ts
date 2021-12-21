@@ -21,6 +21,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.userService.isLoadingSubject.asObservable();
   }
 
+
   ngOnInit(): void {
     const sb = this.userService.currentUserSubject.asObservable().pipe(
       first(user => !!user)

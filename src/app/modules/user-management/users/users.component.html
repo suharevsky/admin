@@ -80,6 +80,12 @@
                                                                    [checked]="grouping.checkAreAllRowsSelected()"/><span></span></label>
                 </th>
                 <th>
+                    ID
+                    <app-sort-icon column="id" [activeColumn]="sorting.column"
+                                   [activeDirection]="sorting.direction"
+                                   (sort)="sort($event)"></app-sort-icon>
+                </th>
+                <th>
                     PICTURE
                     <app-sort-icon column="id" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
                                    (sort)="sort($event)"></app-sort-icon>
@@ -88,16 +94,6 @@
                     NICK
                     <app-sort-icon column="firstName" [activeColumn]="sorting.column"
                                    [activeDirection]="sorting.direction"
-                                   (sort)="sort($event)"></app-sort-icon>
-                </th>
-                <!--<th>
-                    LASTNAME
-                    <app-sort-icon column="lastName" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
-                                   (sort)="sort($event)"></app-sort-icon>
-                </th>-->
-                <th>
-                    EMAIL
-                    <app-sort-icon column="email" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
                                    (sort)="sort($event)"></app-sort-icon>
                 </th>
                 <th>
@@ -124,6 +120,7 @@
                 <th>ACTIONS</th>
                 </thead>
                 <tbody>
+
                 <tr *ngFor="let userService of userService.items$ | async">
                     <td class="selection-cell">
                         <label class="checkbox checkbox-single"><input type="checkbox"
@@ -132,23 +129,23 @@
                             <span></span>
                         </label>
                     </td>
+                    <td>{{ userService.id }}</td>
                     <td><img src="{{ fileUploadService.getBaseUrl(userService?.photo.url) }}" alt="user picture"></td>
                     <td>{{ userService.username }}</td>
-                    <td>{{ userService.email }}</td>
                     <td>
                         <ng-container *ngIf="userService.gender === 1">Man</ng-container>
                         <ng-container *ngIf="userService.gender === 2">Woman</ng-container>
                         <ng-container *ngIf="userService.gender === 3">Couple</ng-container>
                     </td>
                     <td>
-              <span class="label label-lg label-inline" [class.label-light-danger]="userService.status == 3"
-                    [class.label-light-success]="userService.status == 1"
-                    [class.label-light-primary]="userService.status == 4">
-                <ng-container *ngIf="userService.status == 0">Deleted</ng-container>
-                <ng-container *ngIf="userService.status == 1">Active</ng-container>
-                <ng-container *ngIf="userService.status == 2">Pending</ng-container>
-                <ng-container *ngIf="userService.status == 3">Banned</ng-container>
-                <ng-container *ngIf="userService.status == 4">Frozen</ng-container>
+              <span class="label label-lg label-inline" [class.label-light-danger]="userService.status === 3"
+                    [class.label-light-success]="userService.status === 1"
+                    [class.label-light-primary]="userService.status === 4">
+                <ng-container *ngIf="userService.status === 0">Deleted</ng-container>
+                <ng-container *ngIf="userService.status === 1">Active</ng-container>
+                <ng-container *ngIf="userService.status === 2">Pending</ng-container>
+                <ng-container *ngIf="userService.status === 3">Banned</ng-container>
+                <ng-container *ngIf="userService.status === 4">Frozen</ng-container>
 
               </span>
                     </td>

@@ -21,7 +21,7 @@ import {
     ISearchView,
 } from '../../../_metronic/shared/crud-table';
 
-import {DeleteUsersModalComponent} from './components/delete-users-modal/delete-users-modal.component';
+import {DeleteReportAbuseModalComponent} from '../report-abuse/components/delete-report-abuse-modal/delete-report-abuse-modal.component';
 import {UpdateUsersStatusModalComponent} from './components/update-users-status-modal/update-users-status-modal.component';
 import {FetchUsersModalComponent} from './components/fetch-users-modal/fetch-users-modal.component';
 import {EditUserModalComponent} from './components/edit-user-modal/edit-user-modal.component';
@@ -68,6 +68,7 @@ export class UsersComponent
         this.filterForm();
         this.searchForm();
         this.userService.fetch();
+        // this.userService.items$.subscribe(res => console.log(res));
         this.grouping = this.userService.grouping;
         this.paginator = this.userService.paginator;
         this.sorting = this.userService.sorting;
@@ -129,6 +130,7 @@ export class UsersComponent
     }
 
     search(searchTerm: string) {
+        searchTerm = searchTerm.toLowerCase();
         this.userService.patchState({searchTerm});
     }
 
@@ -173,7 +175,7 @@ export class UsersComponent
     }
 
     deleteSelected() {
-        const modalRef = this.modalService.open(DeleteUsersModalComponent);
+        const modalRef = this.modalService.open(DeleteReportAbuseModalComponent);
         modalRef.componentInstance.ids = this.grouping.getSelectedRows();
         modalRef.result.then(() => this.userService.fetch(), () => {
         });

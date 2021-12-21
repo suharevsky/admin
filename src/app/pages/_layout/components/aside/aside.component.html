@@ -1364,6 +1364,39 @@
 
       <!-- begin::1 Level -->
       <li
+              class="menu-item"
+              aria-haspopup="true"
+              routerLinkActive="menu-item-active"
+      >
+        <a
+                class="menu-link"
+                routerLink="/user-management/report-abuse"
+                routerLinkActive="active"
+        >
+          <i class="menu-bullet menu-bullet-dot">
+            <span></span>
+          </i>
+          <span class="menu-text">Report Abuse</span>
+        </a>
+      </li>
+      <li
+              class="menu-item"
+              aria-haspopup="true"
+              routerLinkActive="menu-item-active"
+      >
+        <a class="menu-link" routerLink="/contacts" routerLinkActive="active">
+      <span
+              [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'"
+              cacheSVG="true"
+              class="svg-icon menu-icon"
+      ></span>
+          <span class="menu-text">Contacts</span>
+        </a>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- begin::1 Level -->
+      <li
         class="menu-item"
         aria-haspopup="true"
         routerLinkActive="menu-item-active"
@@ -1379,6 +1412,24 @@
             class="svg-icon menu-icon"
           ></span>
           <span class="menu-text">User Profile</span>
+        </a>
+      </li>
+      <li
+              class="menu-item"
+              aria-haspopup="true"
+              routerLinkActive="menu-item-active"
+      >
+        <a
+                class="menu-link"
+                routerLink="/inbox/list"
+                routerLinkActive="active"
+        >
+          <span
+                  [inlineSVG]="'./assets/media/svg/icons/Communication/Chat1.svg'"
+                  cacheSVG="true"
+                  class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">Inbox</span>
         </a>
       </li>
       <!-- end::1 Level -->
@@ -1650,6 +1701,20 @@
         </div>
       </li>
       <!-- end::1 Level -->
+      <li
+              class="menu-item"
+              aria-haspopup="true"
+              routerLinkActive="menu-item-active"
+      >
+        <a class="menu-link" routerLink="/settings" routerLinkActive="active">
+      <span
+              [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'"
+              cacheSVG="true"
+              class="svg-icon menu-icon"
+      ></span>
+          <span class="menu-text">Settings</span>
+        </a>
+      </li>
     </ul>
     <!-- end::Menu Nav -->
   </div>

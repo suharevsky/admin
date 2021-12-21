@@ -51,12 +51,12 @@
                     <div class="col-lg-4">
                         <label>Date of Birth</label>
                         <div class="input-group input-group-solid">
-                            <input type="text" name="dateOfBirth"
+                            <input type="text" name="birthday"
                                    class="form-control form-control-lg form-control-solid"
                                    autocomplete="off"
                                    placeholder="dd/mm/yyyy" ngbDatepicker #d="ngbDatepicker"
-                                   [class.is-invalid]="isControlInvalid('dateOfBirth')"
-                                   [class.is-valid]="isControlValid('dateOfBirth')" formControlName="dateOfBirth"
+                                   [class.is-invalid]="isControlInvalid('birthday')"
+                                   [class.is-valid]="isControlValid('birthday')" formControlName="birthday"
                                    readonly="true"/>
                             <div class="input-group-append" (click)="d.toggle()">
                 <span class="input-group-text">
@@ -64,10 +64,10 @@
                 </span>
                             </div>
                         </div>
-                        <div class="valid-feedback" *ngIf="isControlValid('dateOfBirth')">Date of Birth was entered
+                        <div class="valid-feedback" *ngIf="isControlValid('birthday')">Date of Birth was entered
                             correct
                         </div>
-                        <div class="invalid-feedback" *ngIf="controlHasError('required', 'dateOfBirth')">Please enter
+                        <div class="invalid-feedback" *ngIf="controlHasError('required', 'birthday')">Please enter
                             <b>Date of
                                 Birth</b>
                             in 'mm/dd/yyyy' format
@@ -242,14 +242,15 @@
             </thead>
             <tbody>
             <tr *ngFor="let photo of user?.photos; let index = i">
+
                 <td><img src="{{ fileUploadService.getBaseUrl(photo.url) }}" alt="user picture"></td>
-                <td><span class="label label-lg label-inline" [class.label-light-danger]="!photo?.approved"
-                          [class.label-light-success]="photo?.approved">
-                <ng-container *ngIf="!photo?.approved">Not Approved</ng-container>
-                <ng-container *ngIf="photo?.approved">Approved</ng-container>
+                <td><span class="label label-lg label-inline" [class.label-light-danger]="photo?.status !== 1"
+                          [class.label-light-success]="photo?.status === 1">
+                <ng-container *ngIf="photo?.status !== 1">Not Approved</ng-container>
+                <ng-container *ngIf="photo?.status === 1">Approved</ng-container>
 
               </span>
-                    <mat-checkbox [checked]="photo.approved" (change)="setPhotoApproval(photo)"></mat-checkbox>
+                    <mat-checkbox [checked]="photo.status === 1" (change)="setPhotoApproval(photo)"></mat-checkbox>
                 </td>
                 <td><span *ngIf="photo?.main" class="label label-lg label-inline"
                           [class.label-light-success]="photo?.main">

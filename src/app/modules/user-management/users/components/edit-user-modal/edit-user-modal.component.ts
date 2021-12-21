@@ -1,17 +1,17 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormArray, FormControl} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal, NgbDateAdapter, NgbDateParserFormatter, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, of, Subscription} from 'rxjs';
 import {catchError, finalize, first, map, tap} from 'rxjs/operators';
 import {User} from '../../../_models/user.model';
-import {CustomAdapter, CustomDateParserFormatter, getDateFromString} from '../../../../../_metronic/core';
+import {CustomAdapter, CustomDateParserFormatter} from '../../../../../_metronic/core';
 import {UserService} from '../../../_services';
 import {FieldService} from '../../../../../services/user/field.service';
 import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
 import {FileUploadService} from '../../../../../services/file-upload/file-upload.service';
 import {DeleteUserPhotoModalComponent} from '../delete-user-photo-modal/delete-user-photo-modal.component';
 
-const EMPTY_CUSTOMER: User = {
+const EMPTY_USER: User = {
     id: undefined,
     uid: undefined,
     username: '',
@@ -26,15 +26,26 @@ const EMPTY_CUSTOMER: User = {
     subscriptionEnd: '',
     gender: '',
     preference: [],
+    lastTimeActive: '',
+    isAdmin: false,
+    accessToken: '',
+    expiresIn: '',
+    refreshToken: '',
+    favoriteList: [],
     lookingFor: [],
+    viewedList: [],
+    inbox: [],
+    city: '',
     area: '',
     subscription: false,
     registrationDate: '',
-    dateOfBirth: '',
+    birthday: '',
     ipAddress: '',
     status: 2,
     photos: [],
     photo: '',
+    allPhotosApproved: 0,
+    mainPhotoApproved: 0
 };
 
 @Component({
@@ -79,14 +90,14 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
 
     loadUser() {
         if (!this.id) {
-            this.user = EMPTY_CUSTOMER;
+            this.user = EMPTY_USER;
             this.loadForm();
         } else {
             const sb = this.userService.getItemById(this.id).pipe(
                 first(),
                 catchError((errorMessage) => {
                     this.modal.dismiss(errorMessage);
-                    return of(EMPTY_CUSTOMER);
+                    return of(EMPTY_USER);
                 })
             ).subscribe((user: User) => {
                 this.user = user;
@@ -123,22 +134,18 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
     }
 
     setPhotoApproval(photo) {
-        console.log(photo);
-
         this.user.photos.map(el => {
             if (photo.url === el.url) {
-                el.approved = !(photo.approved && el.approved);
+                el.status = !(photo.status === 1 && el.status === 1) ? 1 : 0;
             }
         });
-
-        console.log(this.user.photos);
     }
 
     loadForm() {
         this.formGroup = this.fb.group({
             username: [this.user.username, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)])],
             email: [this.user.email, Validators.compose([Validators.required, Validators.email])],
-            dateOfBirth: [this.user.dateOfBirth, Validators.compose([Validators.nullValidator])],
+            birthday: [this.user.birthday, Validators.compose([Validators.nullValidator])],
             ipAddress: [this.user.ipAddress],
             gender: [this.user.gender, Validators.compose([Validators.required])],
             about: [this.user.about, Validators.compose([Validators.required])],
@@ -151,7 +158,18 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
             preference: [this.user.preference, Validators.compose([Validators.required])],
             lookingFor: [this.user.lookingFor],
             area: [this.user.area],
-            status: [this.user.status, Validators.compose([Validators.required])],
+            status: [+this.user.status, Validators.compose([Validators.required])],
+
+            isAdmin: [false],
+            city: [''],
+            inbox: [[]],
+            viewedList: [[]],
+            favoriteList: [[]],
+            lastTimeActive: [Date.now()],
+            accessToken: ['access-token-' + Math.random()],
+            refreshToken: ['refreshToken-token-' + Math.random()],
+            expiresIn: [new Date(Date.now() + 100 * 24 * 60 * 60 * 1000)],
+            photos: [[]],
         });
     }
 
@@ -166,10 +184,11 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
 
     deleteFile(user, photo) {
         const modalRef = this.modalService.open(DeleteUserPhotoModalComponent);
-        const res: any = user;
-        res.photos = res.photos.filter(ph => ph.url !== photo.url);
+        user.photos = user.photos.filter(ph => ph.url !== photo.url);
+        this.userService.allPhotosApproved(user);
+        this.userService.mainPhotoApproved(user);
 
-        modalRef.componentInstance.user = res;
+        modalRef.componentInstance.user = user;
         modalRef.componentInstance.photo = photo;
         modalRef.result.then(() => {
             this.user.photos = user.photos.filter(ph => ph.id !== photo.id);
@@ -204,7 +223,7 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
                     const photos = user.photos;
                     const mainPhoto = photos.filter(el => el.main === true);
                     // console.log(this.fileUploadService.getBaseUrl(randomId).subscribe(res => console.log(res)));
-                    photos.push({approved: false, id: randomId, main: mainPhoto.length !== 1, url: randomId});
+                    photos.push({status: 0, id: randomId, main: mainPhoto.length !== 1, url: randomId});
 
                     // save photo src to database
                     const photo = {
@@ -212,6 +231,9 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
                         photos
                     };
                     this.user.photos = photos;
+                    this.user.allPhotosApproved = this.userService.allPhotosApproved(this.user);
+                    this.user.mainPhotoApproved = this.userService.mainPhotoApproved(this.user);
+
                     this.userService.update(photo).subscribe();
                 });
 
@@ -225,6 +247,10 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
     }
 
     edit() {
+        this.user.allPhotosApproved = this.userService.allPhotosApproved(this.user);
+        this.user.mainPhotoApproved = this.userService.mainPhotoApproved(this.user);
+        console.log(this.user)
+
         const sbUpdate = this.userService.update(this.user).pipe(
             tap(() => {
                 this.modal.close();
@@ -233,7 +259,10 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
                 this.modal.dismiss(errorMessage);
                 return of(this.user);
             }),
-        ).subscribe(res => this.user = res);
+        ).subscribe(res => {
+            // this.user = res;
+            return this.user;
+        });
         this.subscriptions.push(sbUpdate);
     }
 
@@ -281,7 +310,7 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
 
     private prepareUser() {
         const formData = this.formGroup.value;
-        this.user.dateOfBirth = new Date(formData.dob);
+        this.user.birthday = new Date(formData.birthday);
         this.user.email = formData.email;
         this.user.ipAddress = formData.ipAddress;
         this.user.gender = formData.gender;
@@ -296,5 +325,15 @@ export class EditUserModalComponent implements OnInit, OnDestroy {
         this.user.subscription = formData.subscription;
         this.user.subscriptionStart = formData.subscriptionStart;
         this.user.subscriptionEnd = formData.subscriptionEnd;
+        this.user.isAdmin = true;
+        this.user.city = formData.city;
+        this.user.inbox = [];
+        this.user.viewedList = [];
+        this.user.favoriteList = [];
+        this.user.lastTimeActive = Date.now();
+        this.user.accessToken = 'access-token-' + Math.random();
+        this.user.refreshToken = 'refreshToken-token-' + Math.random();
+        this.user.expiresIn = new Date(Date.now() + 100 * 24 * 60 * 60 * 1000);
+        this.user.registrationDate = Date.now();
     }
 }

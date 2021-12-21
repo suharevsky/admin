@@ -15,5 +15,6 @@ export class JsPageService {
         this.jsService.playBgVideo();
         this.jsService.fadeInSections();
         this.jsService.arrowScrollDown();
+        this.jsService.initModal();
     }
 }

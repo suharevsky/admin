@@ -8,7 +8,8 @@
   },
   "emulators": {
     "functions": {
-      "port": 5002
+      "port": 8101,
+      "host": "localhost"
     },
     "ui": {
       "enabled": false

@@ -1,0 +1,127 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">Inbox</h3>
+        </div>
+        <!--<div class="card-toolbar">
+            <button type="button" class="btn btn-primary" (click)="create()">New Chat</button>
+        </div>-->
+    </div>
+    <div class="card-body">
+        <!-- begin: Filtration form -->
+        <div class="form form-label-right">
+            <div class="form-group row">
+                <div class="col-lg-4">
+                    <div class="row" [formGroup]="filterGroup">
+                        <div class="col-lg-6">
+                            <select class="form-control" placeholder="Filter by Type" name="adminExists"
+                                    formControlName="adminExists">
+                                <option value="false">All</option>
+                                <option value="true">Admin</option>
+                            </select><small class="form-text text-muted"><b>Filter</b> by user type</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2" [formGroup]="searchGroup">
+                    <input type="text" class="form-control" name="searchText" placeholder="Search" value=""
+                           formControlName="searchTerm"/><small class="form-text text-muted"><b>Search</b> in all fields</small>
+                </div>
+            </div>
+        </div>
+        <!-- end: Filtration form -->
+
+        <!-- begin: Grouping -->
+        <ng-container *ngIf="grouping.getSelectedRowsCount()">
+            <div class="form">
+                <div class="row align-items-center form-group-actions margin-top-20 margin-bottom-20">
+                    <div class="col-xl-12">
+                        <div class="form-group form-group-inline">
+                            <div class="form-label form-label-no-wrap">
+                                <label class="font-bold font-danger"><span>Selected records count:
+                    <b>{{ grouping.getSelectedRowsCount() }}</b></span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <!-- end: Grouping -->
+
+        <!-- begin:Table -->
+        <div class="table-responsive angular-bootstrap-table">
+            <table class="table table-head-custom table-vertical-center overflow-hidden">
+                <thead>
+                <th class="selection-cell-header" data-row-selection="true">
+                    <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectAllRows()"
+                                                                   [checked]="grouping.checkAreAllRowsSelected()"/><span></span></label>
+                </th>
+                <th>
+                    Message
+                    <app-sort-icon column="firstName" [activeColumn]="sorting.column"
+                                   [activeDirection]="sorting.direction"
+                                   (sort)="sort($event)"></app-sort-icon>
+                </th>
+                <th>
+                    UID1
+                </th>
+                <th>
+                    UID2
+                </th>
+                <th>
+                    DATE
+                </th>
+                <th>ACTIONS</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let inboxItem of inboxService.items$ | async">
+                    <td class="selection-cell">
+                        <label class="checkbox checkbox-single"><input type="checkbox"
+                                                                       (click)="grouping.selectRow(inboxItem.id)"
+                                                                       [checked]="grouping.isRowSelected(inboxItem.id)"/>
+                            <span></span>
+                        </label>
+                    </td>
+                    <td><div [innerHtml]="nl2br(inboxItem.content)"></div></td>
+                    <td>{{ inboxItem.uid1 }}</td>
+                    <td>{{ inboxItem.uid2 }}</td>
+                    <td><span class="label label-lg label-inline label-light-success">{{ inboxItem.date }}</span></td>
+                    <td>
+                        <!--<span class="label label-lg label-inline" [class.label-light-danger]="customer.status === 1"
+                          [class.label-light-success]="customer.status === 2" [class.label-light-primary]="customer.status === 3">
+                          <ng-container *ngIf="customer.status === 1">Suspended</ng-container>
+                          <ng-container *ngIf="customer.status === 2">Active</ng-container>
+                          <ng-container *ngIf="customer.status === 3">Pending</ng-container>
+                        </span>-->
+                    </td>
+                    <td>
+                        <!--<span class="label label-dot label-primary mr-2" [class.label-success]="customer.type === 1"
+                          [class.label-primary]="customer.type === 2"></span>&nbsp;<span class="font-bold font-primary">
+                          <ng-container *ngIf="customer.type === 1">Business</ng-container>
+                          <ng-container *ngIf="customer.type === 2">Individual</ng-container>
+                        </span>-->
+                    </td>
+                    <td>
+
+                        <a title="Look at chat" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                           (click)="getChat(inboxItem.id)">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Group-chat.svg'" cacheSVG="true"
+                      class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+                        </a>
+
+                        <!-- <a title="Delete customer" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                           (click)="delete(inboxItem.id)">
+                           <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                             class="svg-icon svg-icon-md svg-icon-danger">
+                           </span>
+                         </a>-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end: Table -->
+        <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+                       [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+    </div>
+</div>

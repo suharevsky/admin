@@ -87,13 +87,13 @@ export const locale = {
         },
         DELETE_CUSTOMER_MULTY: {
           TITLE: 'Customers Delete',
-          DESCRIPTION: 'Are you sure to permanently delete selected customers?',
+          DESCRIPTION: 'Are you sure to permanently delete selected list?',
           WAIT_DESCRIPTION: 'Customers are deleting...',
-          MESSAGE: 'Selected customers have been deleted'
+          MESSAGE: 'Selected list have been deleted'
         },
         UPDATE_STATUS: {
-          TITLE: 'Status has been updated for selected customers',
-          MESSAGE: 'Selected customers status have successfully been updated'
+          TITLE: 'Status has been updated for selected list',
+          MESSAGE: 'Selected list status have successfully been updated'
         },
         EDIT: {
           UPDATE_MESSAGE: 'Customer has been updated',

@@ -4,7 +4,7 @@ import {UsersComponent} from './users/users.component';
 import {RolesComponent} from './roles/roles.component';
 import {UserManagementComponent} from './user-management.component';
 import {UserManagementRoutingModule} from './user-management-routing.module';
-import {DeleteUsersModalComponent} from './users/components/delete-users-modal/delete-users-modal.component';
+import {DeleteReportAbuseModalComponent} from './report-abuse/components/delete-report-abuse-modal/delete-report-abuse-modal.component';
 import {FetchUsersModalComponent} from './users/components/fetch-users-modal/fetch-users-modal.component';
 import {DeleteUserModalComponent} from './users/components/delete-user-modal/delete-user-modal.component';
 import {EditUserModalComponent} from './users/components/edit-user-modal/edit-user-modal.component';
@@ -18,12 +18,13 @@ import {UserPicturesComponent} from './user-pictures/user-pictures.component';
 import {DeleteUserPhotoModalComponent} from './users/components/delete-user-photo-modal/delete-user-photo-modal.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {ReportAbuseComponent} from './report-abuse/report-abuse.component';
 
 @NgModule({
-    declarations: [UsersComponent, RolesComponent, UserManagementComponent, DeleteUsersModalComponent, FetchUsersModalComponent,
+    declarations: [UsersComponent, RolesComponent, UserManagementComponent, DeleteReportAbuseModalComponent, FetchUsersModalComponent,
         DeleteUserModalComponent, DeleteUserPhotoModalComponent, FetchUsersModalComponent, EditUserModalComponent,
         UpdateUsersStatusModalComponent,
-        UserPicturesComponent],
+        UserPicturesComponent, ReportAbuseComponent],
     imports: [CommonModule, UserManagementRoutingModule, FormsModule, ReactiveFormsModule, CRUDTableModule, InlineSVGModule,
         NgbDatepickerModule, MatFormFieldModule, NgbProgressbarModule, MatRadioModule, MatCheckboxModule],
 })

@@ -1,7 +1,8 @@
 import {BaseModel} from '../../../_metronic/shared/crud-table';
+import DateTimeFormat = Intl.DateTimeFormat;
 
 export interface User extends BaseModel {
-    id: number;
+    id: string;
     uid: string;
     firstName: string;
     height: number;
@@ -18,10 +19,22 @@ export interface User extends BaseModel {
     photo: string;
     lookingFor: string[];
     area: string;
+    city: string;
     gender: string;
     status: number; // 1 - Active | Pending | Banned | Frozen | 0 - Deleted
-    dateOfBirth: Date | string;
-    registrationDate: string;
+    registrationDate: any;
     ipAddress: string;
     subscription: boolean;
+    inbox: string[];
+    viewedList: string[];
+    favoriteList: string[];
+    lastTimeActive: any;
+    isAdmin: boolean;
+    accessToken: string;
+    refreshToken: string;
+    expiresIn: Date | string;
+    birthday: Date | string;
+    allPhotosApproved: number;
+    mainPhotoApproved: number;
+    
 }

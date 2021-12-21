@@ -1,7 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="003b7a20-9469-4d4e-a977-aaf37f78e285" name="Default Changelist" comment="" />
+    <list default="true" id="003b7a20-9469-4d4e-a977-aaf37f78e285" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/functions/src/controllers/adminSettings/adminSettingsController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/inbox/_services/inbox.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/user-management/_services/report-abuse.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/config/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/config/firebase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/controllers/user/userController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_fake/fake-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_fake/fake-api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_metronic/configs/dynamic-aside-menu.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_metronic/configs/dynamic-aside-menu.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_metronic/configs/dynamic-header-menu.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_metronic/configs/dynamic-header-menu.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_metronic/shared/crud-table/services/table.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_metronic/shared/crud-table/services/table.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/_models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/_models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/_services/auth-http/auth-http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/_services/auth-http/auth-http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/_services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/_services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_fake/fake-server/_e-commerce.data-context.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_fake/fake-server/car-specifications.table.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_fake/fake-server/cars.table.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_fake/fake-server/customers.table.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_fake/fake-server/orders.table.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_fake/fake-server/remarks.table.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_models/customer.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_models/product-remark.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_models/product-specification.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_models/product.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_models/specification.dictionary.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/customers.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/fake/customers.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/fake/products.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/fake/remarks.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/fake/specifications.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/products.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/remarks.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/_services/specifications.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/delete-customer-modal/delete-customer-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/delete-customer-modal/delete-customer-modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/fcm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/delete-customer-modal/delete-customer-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/delete-customers-modal/delete-customers-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/delete-customers-modal/delete-customers-modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/helpers/date.helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/delete-customers-modal/delete-customers-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/edit-customer-modal/edit-customer-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/edit-customer-modal/edit-customer-modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/report-abuse/components/delete-report-abuse-modal/delete-report-abuse-modal.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/edit-customer-modal/edit-customer-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/fetch-customers-modal/fetch-customers-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/fetch-customers-modal/fetch-customers-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/fetch-customers-modal/fetch-customers-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/update-customers-status-modal/update-customers-status-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/update-customers-status-modal/update-customers-status-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/components/update-customers-status-modal/update-customers-status-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/customers.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/customers.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/customers/customers.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/e-commerce-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/e-commerce.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/e-commerce.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/e-commerce.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/delete-product-modal/delete-product-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/delete-product-modal/delete-product-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/delete-product-modal/delete-product-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/delete-products-modal/delete-products-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/delete-products-modal/delete-products-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/delete-products-modal/delete-products-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/fetch-products-modal/fetch-products-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/fetch-products-modal/fetch-products-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/fetch-products-modal/fetch-products-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/update-products-status-modal/update-products-status-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/update-products-status-modal/update-products-status-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/components/update-products-status-modal/update-products-status-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/product-edit.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/product-edit.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/product-edit.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/delete-remark-modal/delete-remark-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/delete-remark-modal/delete-remark-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/delete-remark-modal/delete-remark-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/delete-remarks-modal/delete-remarks-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/delete-remarks-modal/delete-remarks-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/delete-remarks-modal/delete-remarks-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/edit-remark-modal/edit-remark-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/edit-remark-modal/edit-remark-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/edit-remark-modal/edit-remark-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/fetch-remarks-modal/fetch-remarks-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/fetch-remarks-modal/fetch-remarks-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/fetch-remarks-modal/fetch-remarks-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/remarks.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/remarks.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/remarks/remarks.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/delete-spec-modal/delete-spec-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/delete-spec-modal/delete-spec-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/delete-spec-modal/delete-spec-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/delete-specs-modal/delete-specs-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/delete-specs-modal/delete-specs-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/delete-specs-modal/delete-specs-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/edit-spec-modal/edit-spec-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/edit-spec-modal/edit-spec-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/edit-spec-modal/edit-spec-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/fetch-specs-modal/fetch-specs-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/fetch-specs-modal/fetch-specs-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/fetch-specs-modal/fetch-specs-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/specifications.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/specifications.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/product-edit/specifications/specifications.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/products.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/products.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/e-commerce/products/products.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/ch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/ch.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/de.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/de.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/en.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/es.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/es.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/jp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/i18n/vocabs/jp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/_models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/_models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/_services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/_services/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/_services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/_services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/user-management-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/user-management-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/user-management.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/user-management.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/user-pictures/user-pictures.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/user-pictures/user-pictures.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/user-pictures/user-pictures.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/user-pictures/user-pictures.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/delete-user-photo-modal/delete-user-photo-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/components/delete-user-photo-modal/delete-user-photo-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/delete-users-modal/delete-users-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/report-abuse/components/delete-report-abuse-modal/delete-report-abuse-modal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/delete-users-modal/delete-users-modal.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/delete-users-modal/delete-users-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/report-abuse/components/delete-report-abuse-modal/delete-report-abuse-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/edit-user-modal/edit-user-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/components/edit-user-modal/edit-user-modal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/edit-user-modal/edit-user-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/components/edit-user-modal/edit-user-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/fetch-users-modal/fetch-users-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/components/fetch-users-modal/fetch-users-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/components/update-users-status-modal/update-users-status-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/components/update-users-status-modal/update-users-status-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/users.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/users.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-management/users/users.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-management/users/users.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/user-profile/personal-information/personal-information.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/user-profile/personal-information/personal-information.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/_layout/components/aside/aside.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/_layout/components/aside/aside.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/home/home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/pages-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/pages-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/js/js-page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/js/js-page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/js/js.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/js/js.service.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +168,18 @@
     <expand />
     <select />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1pFtW5DvJfmOWtJ2YerPJAD2yEj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -35,7 +188,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/media/svg/shapes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -44,16 +197,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/functions" />
+      <recent name="$PROJECT_DIR$/functions/src/controllers/user" />
+      <recent name="$PROJECT_DIR$/functions/src" />
+      <recent name="$PROJECT_DIR$/src/app/modules/user-management/report-abuse/components" />
       <recent name="$PROJECT_DIR$/src/assets/media/bg" />
-      <recent name="$PROJECT_DIR$/src/assets/media/users/id" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user-management/users/components" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets/media/svg/shapes" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user-management/users/components" />
-      <recent name="$PROJECT_DIR$/src/assets/media/bg" />
+      <recent name="$PROJECT_DIR$/functions/src/controllers/adminSettings" />
+      <recent name="$PROJECT_DIR$/src/app/modules/inbox/_services" />
+      <recent name="$PROJECT_DIR$/src/app/modules" />
+      <recent name="$PROJECT_DIR$/src/app/modules/inbox" />
       <recent name="$PROJECT_DIR$/src/app/modules/user-management/_services" />
-      <recent name="$PROJECT_DIR$/src/assets/media/users" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -96,7 +251,133 @@
       <workItem from="1617907875049" duration="354000" />
       <workItem from="1617923152541" duration="28105000" />
       <workItem from="1618144019679" duration="1112000" />
-      <workItem from="1618161785086" duration="10144000" />
+      <workItem from="1618161785086" duration="10463000" />
+      <workItem from="1618232346485" duration="257000" />
+      <workItem from="1618237145129" duration="1200000" />
+      <workItem from="1618250570760" duration="3194000" />
+      <workItem from="1618328131881" duration="1726000" />
+      <workItem from="1618424740829" duration="40000" />
+      <workItem from="1618469588057" duration="3253000" />
+      <workItem from="1618557891772" duration="33000" />
+      <workItem from="1618669546812" duration="1016000" />
+      <workItem from="1618741876495" duration="6583000" />
+      <workItem from="1618824733532" duration="1955000" />
+      <workItem from="1618926919889" duration="2796000" />
+      <workItem from="1619025166582" duration="7653000" />
+      <workItem from="1619284839368" duration="7000" />
+      <workItem from="1619389450148" duration="2262000" />
+      <workItem from="1619531392376" duration="426000" />
+      <workItem from="1619624609128" duration="3935000" />
+      <workItem from="1619684319988" duration="8217000" />
+      <workItem from="1619736501907" duration="359000" />
+      <workItem from="1619806475582" duration="11389000" />
+      <workItem from="1619938606660" duration="3602000" />
+      <workItem from="1620048574418" duration="1070000" />
+      <workItem from="1620107429210" duration="5041000" />
+      <workItem from="1620137255803" duration="3102000" />
+      <workItem from="1620182450130" duration="1992000" />
+      <workItem from="1620464020979" duration="2921000" />
+      <workItem from="1620543377580" duration="776000" />
+      <workItem from="1621053059496" duration="578000" />
+      <workItem from="1621414483600" duration="1982000" />
+      <workItem from="1621862838098" duration="4629000" />
+      <workItem from="1622803997991" duration="1740000" />
+      <workItem from="1622987367127" duration="424000" />
+      <workItem from="1623010255672" duration="24000" />
+      <workItem from="1623034968387" duration="1569000" />
+      <workItem from="1623148788940" duration="758000" />
+      <workItem from="1623160494389" duration="1146000" />
+      <workItem from="1623233701722" duration="723000" />
+      <workItem from="1623304767114" duration="4134000" />
+      <workItem from="1623935256979" duration="589000" />
+      <workItem from="1624651012852" duration="194000" />
+      <workItem from="1625060619543" duration="1993000" />
+      <workItem from="1625489312549" duration="308000" />
+      <workItem from="1625614701110" duration="958000" />
+      <workItem from="1626089747854" duration="3661000" />
+      <workItem from="1626522970284" duration="827000" />
+      <workItem from="1627290027275" duration="83000" />
+      <workItem from="1627290338638" duration="3349000" />
+      <workItem from="1627315803992" duration="553000" />
+      <workItem from="1627389930523" duration="105000" />
+      <workItem from="1627401982898" duration="4292000" />
+      <workItem from="1627449909126" duration="2970000" />
+      <workItem from="1627487333658" duration="759000" />
+      <workItem from="1627630766716" duration="7719000" />
+      <workItem from="1627821245954" duration="243000" />
+      <workItem from="1627887592599" duration="506000" />
+      <workItem from="1627888564178" duration="479000" />
+      <workItem from="1627897300442" duration="7055000" />
+      <workItem from="1627909078997" duration="877000" />
+      <workItem from="1627964774216" duration="17873000" />
+      <workItem from="1628003609339" duration="2445000" />
+      <workItem from="1628006179607" duration="263000" />
+      <workItem from="1628006674232" duration="5612000" />
+      <workItem from="1628065404033" duration="13379000" />
+      <workItem from="1628084177738" duration="4128000" />
+      <workItem from="1628155539482" duration="10626000" />
+      <workItem from="1628169881833" duration="3567000" />
+      <workItem from="1628238752932" duration="1101000" />
+      <workItem from="1628252844516" duration="415000" />
+      <workItem from="1628276128141" duration="5321000" />
+      <workItem from="1628344855051" duration="1478000" />
+      <workItem from="1628403942534" duration="5219000" />
+      <workItem from="1628674304472" duration="2311000" />
+      <workItem from="1628695529482" duration="81000" />
+      <workItem from="1628765508281" duration="6192000" />
+      <workItem from="1629015600585" duration="2650000" />
+      <workItem from="1629037510078" duration="3284000" />
+      <workItem from="1629089496220" duration="20364000" />
+      <workItem from="1629127405947" duration="3230000" />
+      <workItem from="1629189051337" duration="18249000" />
+      <workItem from="1629274849936" duration="500000" />
+      <workItem from="1629276705934" duration="5993000" />
+      <workItem from="1629344672353" duration="15894000" />
+      <workItem from="1629385994270" duration="748000" />
+      <workItem from="1629622968770" duration="626000" />
+      <workItem from="1629650457692" duration="280000" />
+      <workItem from="1629733713818" duration="587000" />
+      <workItem from="1629802449306" duration="4940000" />
+      <workItem from="1629831145707" duration="3000" />
+      <workItem from="1629891554473" duration="206000" />
+      <workItem from="1629997024582" duration="2210000" />
+      <workItem from="1630217555203" duration="2799000" />
+      <workItem from="1630221037494" duration="771000" />
+      <workItem from="1630222182653" duration="5000" />
+      <workItem from="1630222549682" duration="2989000" />
+      <workItem from="1630229972258" duration="1397000" />
+      <workItem from="1630243855023" duration="1454000" />
+      <workItem from="1630326104450" duration="27000" />
+      <workItem from="1630326812539" duration="6162000" />
+      <workItem from="1630403381282" duration="6049000" />
+      <workItem from="1630444647697" duration="4619000" />
+      <workItem from="1630488166123" duration="9686000" />
+      <workItem from="1630581636308" duration="4898000" />
+      <workItem from="1630620701997" duration="50000" />
+      <workItem from="1630658128888" duration="2656000" />
+      <workItem from="1630667225749" duration="2119000" />
+      <workItem from="1630840941080" duration="9673000" />
+      <workItem from="1630862582619" duration="1775000" />
+      <workItem from="1630926755098" duration="4498000" />
+      <workItem from="1630952498471" duration="755000" />
+      <workItem from="1631005897012" duration="2157000" />
+      <workItem from="1631010394262" duration="7632000" />
+      <workItem from="1631088028715" duration="1694000" />
+      <workItem from="1631161712772" duration="2017000" />
+      <workItem from="1631276954384" duration="294000" />
+      <workItem from="1631300783836" duration="746000" />
+      <workItem from="1577844483394" duration="701000" />
+      <workItem from="1631949757585" duration="418000" />
+      <workItem from="1632048536693" duration="1488000" />
+      <workItem from="1632082000936" duration="4732000" />
+      <workItem from="1632310276916" duration="1047000" />
+      <workItem from="1632322601340" duration="89000" />
+      <workItem from="1632323074363" duration="962000" />
+      <workItem from="1632472987544" duration="2699000" />
+      <workItem from="1632686671965" duration="984000" />
+      <workItem from="1633234389262" duration="1092000" />
+      <workItem from="1633361879582" duration="748000" />
+      <workItem from="1633395330555" duration="29000" />
     </task>
     <servers />
   </component>
@@ -104,59 +385,30 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="321" y="104" key="#Inspections" timestamp="1616966317368">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state x="433" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1630221492003">
+      <screen x="0" y="23" width="1440" height="852" />
     </state>
-    <state x="321" y="104" key="#Inspections/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616966317368" />
-    <state x="397" y="251" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616685750536">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state x="433" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.852@0.23.1440.852" timestamp="1630221492003" />
+    <state x="0" y="52" key="CommitChangelistDialog2" timestamp="1629017146729">
+      <screen x="0" y="23" width="1440" height="852" />
     </state>
-    <state x="397" y="251" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616685750536" />
-    <state x="535" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1615055303429">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state x="0" y="52" key="CommitChangelistDialog2/0.23.1440.852@0.23.1440.852" timestamp="1629017146729" />
+    <state x="100" y="123" width="1240" height="652" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1630331481391">
+      <screen x="0" y="23" width="1440" height="852" />
     </state>
-    <state x="535" y="162" key="#com.intellij.ide.util.MemberChooser/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1615055303429" />
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1616840320969">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state x="100" y="123" width="1240" height="652" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.852@0.23.1440.852" timestamp="1630331481391" />
+    <state x="397" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1623305673090">
+      <screen x="0" y="23" width="1440" height="852" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616840320969" />
-    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1616840320959">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state x="397" y="277" key="com.intellij.ide.util.TipDialog/0.23.1440.852@0.23.1440.852" timestamp="1623305673090" />
+    <state x="301" y="315" width="878" height="499" key="find.popup" timestamp="1630448853035">
+      <screen x="0" y="23" width="1440" height="852" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616840320958" />
-    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1616840320952">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state x="301" y="315" width="878" height="499" key="find.popup/0.23.1440.852@0.23.1440.852" timestamp="1630448853035" />
+    <state x="385" y="186" width="670" height="715" key="search.everywhere.popup" timestamp="1630660280824">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616840320952" />
-    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1616840320962">
-      <screen x="0" y="23" width="1440" height="832" />
-    </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616840320962" />
-    <state x="106" y="-892" width="1724" height="632" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618066632280">
-      <screen x="36" y="-1057" width="1920" height="1057" />
-    </state>
-    <state x="106" y="-892" width="1724" height="632" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1618066632280" />
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1618162500091">
-      <screen x="0" y="23" width="1440" height="832" />
-    </state>
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1618162500091" />
-    <state x="36" y="-1057" width="1920" height="1057" key="dock-window-1" timestamp="1617885568829">
-      <screen x="36" y="-1057" width="1920" height="1057" />
-    </state>
-    <state x="36" y="-1057" width="1920" height="1057" key="dock-window-1/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1617885568829" />
-    <state x="378" y="196" width="889" height="486" key="find.popup" timestamp="1617968512612">
-      <screen x="0" y="23" width="1440" height="832" />
-    </state>
-    <state x="378" y="196" width="889" height="486" key="find.popup/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1617968512612" />
-    <state x="540" y="-837" width="1151" height="618" key="find.popup/0.23.1440.832/36.-1057.1920.1057@36.-1057.1920.1057" timestamp="1617557724397" />
-    <state x="378" y="196" width="863" height="486" key="find.popup/0.23.1440.832@0.23.1440.832" timestamp="1617950208102" />
-    <state x="385" y="199" key="run.anything.popup" timestamp="1616097892352">
-      <screen x="0" y="23" width="1440" height="832" />
-    </state>
-    <state x="385" y="199" key="run.anything.popup/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1616097892352" />
-    <state x="387" y="179" width="670" height="676" key="search.everywhere.popup" timestamp="1617301211832">
-      <screen x="0" y="23" width="1440" height="832" />
-    </state>
-    <state x="387" y="179" width="670" height="676" key="search.everywhere.popup/0.23.1440.832/36.-1057.1920.1057@0.23.1440.832" timestamp="1617301211832" />
+    <state x="385" y="186" width="670" height="715" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1630660280824" />
+    <state x="385" y="199" width="670" height="676" key="search.everywhere.popup/0.23.1440.852@0.23.1440.852" timestamp="1630415865166" />
   </component>
 </project>

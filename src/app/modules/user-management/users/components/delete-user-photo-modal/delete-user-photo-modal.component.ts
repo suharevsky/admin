@@ -1,11 +1,10 @@
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {of, Subscription} from 'rxjs';
-import {catchError, delay, finalize, tap} from 'rxjs/operators';
 import {UserService} from '../../../_services';
 import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {FileUploadService} from '../../../../../services/file-upload/file-upload.service';
+import {catchError, finalize, tap} from 'rxjs/operators';
 
 @Component({
     selector: 'app-delete-user-photo-modal',

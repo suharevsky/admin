@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './_layout/layout.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -23,11 +22,11 @@ const routes: Routes = [
           import('./builder/builder.module').then((m) => m.BuilderModule),
       },
       {
-        path: 'ecommerce',
+        path: 'contacts',
         loadChildren: () =>
-          import('../modules/e-commerce/e-commerce.module').then(
-            (m) => m.ECommerceModule
-          ),
+            import('../modules/contacts/contacts.module').then(
+                (m) => m.ContactsModule
+            ),
       },
       {
         path: 'user-management',
@@ -63,6 +62,20 @@ const routes: Routes = [
           import('../modules/material/material.module').then(
             (m) => m.MaterialModule
           ),
+      },
+      {
+        path: 'inbox',
+        loadChildren: () =>
+            import('../modules/inbox/inbox.module').then(
+                (m) => m.InboxModule
+            ),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+            import('../modules/settings/settings.module').then(
+                (m) => m.SettingsModule
+            ),
       },
       {
         path: '',

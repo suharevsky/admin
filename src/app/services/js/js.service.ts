@@ -5,11 +5,10 @@ import {Injectable} from '@angular/core';
 })
 export class JsService {
 
+    public modal;
+    public overlay;
+
     constructor() {
-    }
-
-    initHomePage() {
-
     }
 
     fadeInSections() {
@@ -44,8 +43,41 @@ export class JsService {
         }, 3000);
     }
 
-    arrowScrollDown() {
+    initModal() {
+        const btnCloseModal = document.querySelector('.btn--close-modal');
+        this.modal = document.querySelector('.modal--popup');
+        const overlay = document.querySelector('.overlay');
 
+        const closeModal = () => {
+            this.modal.classList.add('hidden');
+            this.overlay.classList.add('hidden');
+        };
+
+        const btnsOpenContact = document.querySelectorAll('.btn--show-contact');
+        btnsOpenContact.forEach(btn => {
+            btn.addEventListener('click', this.openModal);
+        });
+
+        overlay.addEventListener('click', closeModal);
+        btnCloseModal.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+
+    openModal() {
+        this.modal.classList.remove('hidden');
+        this.overlay.classList.remove('hidden');
+    }
+
+    arrowScrollDown() {
+        document.querySelector('.scroll-down').addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector('#section--1').scrollIntoView({behavior: 'smooth'});
+        });
     }
 
     stickyNavigation() {
