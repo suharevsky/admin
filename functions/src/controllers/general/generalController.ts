@@ -8,21 +8,24 @@ const sendAppLink = async (req: any, res: Response) => {
         const {phoneNumber} = req.body;
         //@ts-ignore;
         const vonage = new Vonage({
-          apiKey: '5bc6b102',
-          apiSecret: 'ejXaTtiij1eV9TQw'
+            apiKey: "5bc6b102",
+            apiSecret: "ejXaTtiij1eV9TQw"
         });
 
         let message = '';
 
+        let response: any;
         
         const from = 'Joyme';
-        const to = '972529584341';
+        const to = phoneNumber;
         const text = "קישור לאפליקציה \nhttps://joyme.co.il";
         const opts = {
             "type": "unicode"
           }
 
         vonage.message.sendSms(from, to, text, opts, (err:any, responseData:any) => {
+
+            response = responseData;
             if (err) {
                 message = err;
             } else {
@@ -35,8 +38,9 @@ const sendAppLink = async (req: any, res: Response) => {
         });
        
         return res.status(200).json({
-            status: 'success',
+            status: 'success test',
             message,
+            response: JSON.stringify(response),
             req: phoneNumber
         });
 

@@ -119,6 +119,7 @@ export abstract class TableService<T> {
         map(res => console.log(res)),
       catchError(err => {
         this._errorMessage.next(err);
+        console.error('ERROR STATUS ', err);
         return of(item);
       }),
       finalize(() => this._isLoading$.next(false))

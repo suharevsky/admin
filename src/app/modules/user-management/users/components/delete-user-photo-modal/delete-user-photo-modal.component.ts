@@ -5,6 +5,7 @@ import {UserService} from '../../../_services';
 import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
 import {FileUploadService} from '../../../../../services/file-upload/file-upload.service';
 import {catchError, finalize, tap} from 'rxjs/operators';
+import { FcmService } from 'src/app/services/fcm.service';
 
 @Component({
     selector: 'app-delete-user-photo-modal',
@@ -18,6 +19,7 @@ export class DeleteUserPhotoModalComponent implements OnInit, OnDestroy {
     subscriptions: Subscription[] = [];
     ref: AngularFireStorageReference;
     fileUploadService: FileUploadService;
+    fcmService: FcmService;
 
     constructor(private usersService: UserService, public modal: NgbActiveModal, private afStorage: AngularFireStorage,
     ) {
@@ -29,6 +31,11 @@ export class DeleteUserPhotoModalComponent implements OnInit, OnDestroy {
     deleteUserPhoto() {
         this.isLoading = true;
 
+
+        if(this.photo.main) {
+           // this.fcmService.
+        }
+        
 
         const sb = this.usersService.update(this.user).pipe(
             tap(() => this.modal.close()),

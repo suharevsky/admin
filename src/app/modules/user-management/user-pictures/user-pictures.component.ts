@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {UserService} from '../_services';
+import {UserPhotoService, UserService} from '../_services';
 import {
     GroupingState,
     ICreateAction,
@@ -18,6 +18,8 @@ import {UpdateUsersStatusModalComponent} from '../users/components/update-users-
 import {FetchUsersModalComponent} from '../users/components/fetch-users-modal/fetch-users-modal.component';
 import {FileUploadService} from '../../../services/file-upload/file-upload.service';
 import {DeleteUserPhotoModalComponent} from '../users/components/delete-user-photo-modal/delete-user-photo-modal.component';
+import { UserModel } from '../../auth';
+import { User } from '../_models/user.model';
 
 @Component({
     selector: 'app-user-pictures',
@@ -51,7 +53,8 @@ export class UserPicturesComponent
         private modalService: NgbModal,
         public fileUploadService: FileUploadService,
         // tslint:disable-next-line:no-shadowed-variable
-        public userService: UserService
+        public userService: UserService,
+        public userPhotoService: UserPhotoService
     ) {
     }
 
@@ -85,6 +88,23 @@ export class UserPicturesComponent
         );
     }
 
+    approval(photo) {
+        photo.status = photo.status == 0 ? 1: 0;
+
+        this.userService.getItemById(photo.userId).subscribe((user:User) => {
+            user.photos.map(el => { 
+                if(el.id === photo.id) {
+                    el.status = el.status === 0 ? 1 : 0;
+                }
+                return el;
+            });
+
+            user.allPhotosApproved = this.userService.allPhotosApproved(user);
+
+            this.userService.update(user).subscribe();
+        });
+    }
+
     filter() {
     }
 
@@ -110,6 +130,7 @@ export class UserPicturesComponent
     }
 
     edit(id: number) {
+        console.log(id);
         const modalRef = this.modalService.open(EditUserModalComponent, {size: 'xl'});
         modalRef.componentInstance.id = id;
         modalRef.result.then(() =>
@@ -120,6 +141,7 @@ export class UserPicturesComponent
     }
 
     delete(id: number) {
+        console.log(id);
         const modalRef = this.modalService.open(DeleteUserModalComponent);
         modalRef.componentInstance.id = id;
         modalRef.result.then(() => this.userService.fetch(), () => {

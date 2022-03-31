@@ -8,7 +8,8 @@ admin.initializeApp({
         projectId: functions.config().project.id,
         clientEmail: functions.config().client.email
     }),
-    databaseURL: 'https://joyme-19532.firebaseio.com'
+   // databaseURL: 'https://joyme-19532.firebaseio.com'
+   databaseURL: 'polymatch-d1996.firebaseio.com'
 });
 
 const db = admin.firestore();

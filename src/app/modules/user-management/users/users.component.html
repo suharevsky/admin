@@ -130,7 +130,7 @@
                         </label>
                     </td>
                     <td>{{ userService.id }}</td>
-                    <td><img src="{{ fileUploadService.getBaseUrl(userService?.photo.url) }}" alt="user picture"></td>
+                    <td><img src="{{ fileUploadService.getBaseUrl(userService?.photo?.url) }}" alt="user picture"></td>
                     <td>{{ userService.username }}</td>
                     <td>
                         <ng-container *ngIf="userService.gender === 1">Man</ng-container>
@@ -167,8 +167,7 @@
                 </span>
                         </a>
 
-                        <a title="Delete userService" class="btn btn-icon btn-light btn-hover-danger btn-sm"
-                           (click)="delete(userService)">
+                        <a title="Delete userService" class="btn btn-icon btn-light btn-hover-danger btn-sm">
                 <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
                       class="svg-icon svg-icon-md svg-icon-danger">
                 </span>

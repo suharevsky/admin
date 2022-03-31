@@ -70,7 +70,7 @@ app.get('/report-abuse', getReportAbuseList);
 app.put('/report-abuse/deleteItems', deleteReportItems);
 
 /** Inbox **/
-app.get('/inbox', getInbox);
+//app.get('/inbox', getInbox);
 
 app.post('/users/inboxArray', setInboxArray);
 

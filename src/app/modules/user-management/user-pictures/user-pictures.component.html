@@ -10,21 +10,26 @@
             <table class="table table-head-custom table-vertical-center overflow-hidden">
                 <thead>
                 <th>PICTURE</th>
-                <th>USER ID</th>
-                <th>ACTIONS</th>
+                <th>STATUS</th>
+                <th>NAME</th>
+                <th>APPROVE</th>
                 </thead>
                 <tbody>
 
-                <tr *ngFor="let userPic of userService.items$ | async">
-                    <td><img src="{{ fileUploadService.getBaseUrl(userPic.id) }}" alt="user picture"></td>
-                    <td><span class="label label-lg label-inline" [class.label-light-danger]="userPic?.status === 0">
-                <ng-container *ngIf="userPic?.status === 0">Not Approved</ng-container>
+                <tr *ngFor="let userPhoto of userService.items$ | async">
+                    <td><img src="{{ fileUploadService.getBaseUrl(userPhoto.id) }}" alt="user picture"></td>
+                    <td><span class="label label-lg label-inline" [class.label-light-danger]="userPhoto?.status === 0" [class.label-light-success]="userPhoto.status === 1">
+
+                <ng-container *ngIf="userPhoto?.status === 0">Not Approved</ng-container>
+                <ng-container *ngIf="userPhoto?.status === 1">Approved</ng-container>
 
               </span></td>
-                    <td>{{ userPic.userId }}</td>
+                    <td>{{ userPhoto.username }}</td>
                     <td>
-
-                        <a title="Edit customer" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+                        <mat-checkbox (change)="approval(userPhoto)"></mat-checkbox>
+                    </td>
+                    <td>
+                        <a title="Edit customer" (click)="edit(userPhoto.id)" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                 <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
                       class="svg-icon svg-icon-md svg-icon-primary">
                 </span>

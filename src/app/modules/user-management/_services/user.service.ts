@@ -78,6 +78,7 @@ export class UserService extends TableService<User> implements OnDestroy {
                     const result: any = res.items.map((user: any) => {
                         // console.log(user);
                         user.photos.map(photo => {
+                            photo.username = user.username;
                             photo.userId = user.id;
                             return photo;
                         });
