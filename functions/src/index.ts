@@ -28,7 +28,7 @@ import {deleteReportItems, getReportAbuseList} from './reportAbuseController';
 
 import {addLike, getReceiverLikes} from './LikeController';
 import {getPage} from './controllers/page/pageController';
-import {getInbox} from './controllers/messages/inboxController';
+//import {getInbox} from './controllers/messages/inboxController';
 import {getMessagesById, send, getDialogue, setDialogue} from './controllers/messages/messagesController';
 import {getAdminSettings, updateSettings} from './controllers/adminSettings/adminSettingsController';
 
